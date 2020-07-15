@@ -147,7 +147,7 @@ javascript:(function(){
 	}
 
 	function create_button(btn_text, title, on_click){
-		var btn = create_element('button', null, 'margin:10px 5px;vertical-align:middle;height:32px;width:32px;background-color:white;color:black; border:1px solid #333;' + border_radius);
+		var btn = create_element('button', null, 'margin:10px 5px;vertical-align:middle;height:32px;width:32px;background-color:white;color:black; border:1px solid #333;white-space:nowrap;padding:2px;' + border_radius);
 		btn.innerHTML = btn_text;
 		btn.title = title;
 		btn.onclick = on_click;
