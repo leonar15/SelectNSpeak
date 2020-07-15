@@ -58,10 +58,9 @@ javascript:(function(){
 		// note: voices load asynchronously, this avoids loading an empty list
 		setTimeout(function(){
 			voices = wss.getVoices();
-			voices.forEach((voice) => {
+			voices.forEach((voice, index) => {
 				var option = create_element('option', [
-					['data-lang', voice.lang],
-					['data-name', voice.name]
+					['value', index]
 				]);
 				option.textContent = voice.name + ' (' + voice.lang + ')';
 				
@@ -121,14 +120,9 @@ javascript:(function(){
 	}
 	
 	function get_selected_voice(){
-		var selected = voice_select.selectedOptions,
-			selected_voice_name = selected && selected.length ? voice_select.selectedOptions[0].getAttribute('data-name') : '',
-			selected_voice = null;
+		var selected = voice_select.selectedOptions;
 		
-		// iterate through voices and find by name
-		voices.some((voice) => {selected_voice = voice; return voice.name === selected_voice_name});
-		
-		return selected_voice;
+		return selected && selected.length ? voices[selected[0].value] : null;
 	}
 	
 	function stop_playback(){
