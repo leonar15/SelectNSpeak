@@ -153,4 +153,4 @@ javascript:(function(){
 		btn.onclick = on_click;
 		return btn;
 	}
-})()
+})();
