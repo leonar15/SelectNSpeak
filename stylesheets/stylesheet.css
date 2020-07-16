@@ -522,11 +522,12 @@ aside#sidebar .instruct h2 {
   margin-bottom: 40px;
 }
 
-a.button {
+a.button,
+a.button-download, 
+a.button-blue {
   width: 134px;
   height: 58px;
   padding-top: 22px;
-  padding-left: 68px;
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
   font-size: 23px;
   line-height: 1.2;
@@ -542,7 +543,7 @@ header a.button {
   right: 0;
   background: transparent url(../images/github-button.png) 0 0 no-repeat;
 }
-aside a.button {
+aside a.button-download {
   display: block;
   width: 138px;
   padding-left: 64px;
@@ -551,7 +552,7 @@ aside a.button {
   background: transparent url(../images/download-button.png) 0 0 no-repeat;
 }
 
-aside a.button-blue,
+aside a.button,
 a.button-blue {
   display: block;
   width: 202px;
