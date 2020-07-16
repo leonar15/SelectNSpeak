@@ -526,8 +526,8 @@ a.button,
 a.button-download, 
 a.button-blue {
   width: 134px;
-  height: 58px;
-  padding-top: 22px;
+  height: 52px;
+  padding-top: 26px;
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
   font-size: 23px;
   line-height: 1.2;
@@ -539,7 +539,7 @@ a.button small {
   font-size: 11px;
 }
 header a.button {
-  width: 202px;
+  padding-left: 70px;
   position: absolute;
   top: 0;
   right: 0;
@@ -551,6 +551,8 @@ aside a.button-download {
   padding-left: 64px;
   margin-bottom: 20px;
   font-size: 21px;
+  padding-top: 19px;
+  height: 58px;
   background: transparent url(../images/download-button.png) 0 0 no-repeat;
 }
 
