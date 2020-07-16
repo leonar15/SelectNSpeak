@@ -15,6 +15,11 @@ javascript:(function()%7Bvar%20e%2Ct%2Cn%2Co%3Ddocument%2Ca%3Dwindow%2Ci%3Do.get
 
 ## How to Install
 
+
+### Easy Installation
+1. Visit our github-hosted [Select & Speak page](https://leonar15.github.io/SelectNSpeak/)
+2. Drag the Bookmarklet button into your bookmarks bar
+
 ### Manual Installation
 1. Create a new bookmark (e.g. bookmark this page) 
 2. Right-click the bookmark in your bookmark bar and edit the URL
