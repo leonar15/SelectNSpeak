@@ -4,7 +4,7 @@ A privacy-focused bookmarklet to speak any text on a webpage using speech synthe
 ## Why?
 The other night, I found an interesting article, but was feeling too lazy to read it. While searching for a way to have the browser read it aloud, I discovered that most (all?) solutions involve adding yet another browser extension. It turns out that all modern browsers have a built-in library for [speech synthesis](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis). This allows anyone to have their browser read any text on any webpage without calling any external services.
 
-![Select & Speak Control Overlay](/example/selectnspeak_example.png)
+![Select & Speak Control Overlay](/images/selectnspeak_example.png)
 
 
 ## Bookmarklet code
