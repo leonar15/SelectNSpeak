@@ -33,3 +33,16 @@ javascript:(function()%7Bvar%20e%2Ct%2Cn%2Co%3Ddocument%2Ca%3Dwindow%2Ci%3Do.get
 1. Select some text on any webpage, then click the bookmark you just made.
 2. Enjoy!
 3. For fun, try the other available voices on your system
+
+
+## FAQs/Issues/Feedback
+
+### Problem: No voices are loading, or there's only one to choose from
+The bookmarklet depends on voices from your operating system, so that's where you can add/remove them. Here are instructions for adding voices to your OS:
+- _MacOS_: https://support.apple.com/guide/mac-help/change-the-voice-your-mac-uses-to-speak-text-mchlp2290/mac
+- _iOS, iPadOS_: https://support.apple.com/en-us/HT202362
+- _Windows 10_: https://support.microsoft.com/en-us/office/download-voices-for-immersive-reader-read-mode-and-read-aloud-4c83a8d8-7486-42f7-8e46-2b0fdf753130
+- _Android_: https://support.google.com/accessibility/android/answer/6006983?
+
+### Other bugs, problems, feedback?
+Please file a ticket here https://github.com/leonar15/SelectNSpeak/issues/new
