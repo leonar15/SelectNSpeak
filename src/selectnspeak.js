@@ -26,6 +26,8 @@ javascript:(function(){
 		w = window,
 		control_id = 'selectnspeak_bk_control',
 		control = d.getElementById(control_id),
+		sns_url = 'https://github.com/leonar15/SelectNSpeak',
+		sns_version = '0.2',
 		border_radius = 'border-radius: 6px;',
 		voices = [],
 		voice_select,
@@ -34,25 +36,23 @@ javascript:(function(){
 		s,
 		spk = new SpeechSynthesisUtterance,
 		wss = w.speechSynthesis;
-	
-	// create the controls if 
+
+	// create the controls
 	if (!control) {
-		control = create_element('div',[['draggable', true]]);
+		control = create_element('div', [['draggable', true]], 'font-family:sans-serif;border:1px solid #bdbdbd;padding: 6px 10px;position: fixed;top: 10px; left: 10px;background-color:rgba(236,236,236,0.9);width: 275px;text-align: center;z-index:9999999;box-shadow: 0px 0px 17px -3px rgba(255,255,255,1);font-size:16px;box-sizing:border-box;' + border_radius);
 		control.id = control_id;
-		control.style.cssText = 'font-family:sans-serif;border:1px solid #bdbdbd;padding: 6px 10px;position: fixed;top: 10px; left: 10px;background-color:rgba(236,236,236,0.9);width: 250px;text-align: center;z-index:9999999;box-shadow: 0px 0px 17px -3px rgba(255,255,255,1);font-size:16px;box-sizing:border-box;' + border_radius;
-		control.innerHTML = '<div style="font-size:18px;font-weight:600;border-bottom:1px solid;padding: 7px 0;">Select &amp; Speak Controls</div>';
-	
+		control.innerHTML = '<div style="font-size:18px;font-weight:600;border-bottom:1px solid;padding:7px 0;">Select &amp; Speak Controls <a title="Select &amp; Speak v'+ sns_version +'" href="' + sns_url + '" style="position:absolute;top:3px;right:6px;font-size:12px;">&#9432;</a></div>';
+
 		// ref: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
-		voice_select = create_element('select');
-		voice_select.style.cssText = 'width: 100%;';
-		
+		voice_select = create_element('select', null, 'width:100%;');
+
 		// add an instructional option
 		voice_select_instruct = d.createElement('option');
 		voice_select_instruct.disabled = true;
 		voice_select_instruct.textContent = 'Select a voice:';
 		voice_select.append(voice_select_instruct);
 		voice_select.onchange = get_selection_and_play;
-		
+
 		// append voice selection
 		voices = wss.getVoices();
 		// note: voices load asynchronously, this avoids loading an empty list
@@ -63,15 +63,15 @@ javascript:(function(){
 					['value', index]
 				]);
 				option.textContent = voice.name + ' (' + voice.lang + ')';
-				
+
 				if (voice.default) {
 					option.selected = true;
 					option.textContent += ' -- DEFAULT';
 				}
-				
+
 				voice_select.append(option);
 			})}, 30);
-	
+
 		control.append(
 			// play button
 			create_button('&#9654;', 'Speak current selection', get_selection_and_play),
@@ -95,9 +95,9 @@ javascript:(function(){
 	} else {
 		voice_select = control.getelementsByTagName('select')[0];
 	}
-	
+
 	get_selection_and_play();
-	
+
 	function get_selection_and_play(){
 		// grab the selected text
 		if (w.getSelection) {
@@ -105,10 +105,10 @@ javascript:(function(){
 		} else if ((s = w.selection) && s.type == "Text") {
 			selected_text = s.createRange().htmlText;
 		}
-		
+
 		// stop any current speaking
 		stop_playback();
-		
+
 		// speak now if anything was selected
 		if (selected_text.length) {
 			spk.text = selected_text;
@@ -118,17 +118,17 @@ javascript:(function(){
 			alert('Select & Speak: Please select some text before pressing play.');
 		}
 	}
-	
+
 	function get_selected_voice(){
 		var selected = voice_select.selectedOptions;
-		
+
 		return selected && selected.length ? voices[selected[0].value] : null;
 	}
-	
+
 	function stop_playback(){
 		wss.cancel();
 	}
-	
+
 	function create_element(tag, attrs, style){
 		var e = d.createElement(tag);
 		if (attrs) {
@@ -141,7 +141,7 @@ javascript:(function(){
 	}
 
 	function create_button(btn_text, title, on_click){
-		var btn = create_element('button', null, 'margin:10px 5px;vertical-align:middle;height:32px;width:32px;background-color:white;color:black; border:1px solid #333;white-space:nowrap;padding:2px;' + border_radius);
+		var btn = create_element('button', null, 'margin:10px 5px;vertical-align:middle;height:32px;width:32px;background-color:white;color:black;border:1px solid #333;white-space:nowrap;padding:2px;' + border_radius);
 		btn.innerHTML = btn_text;
 		btn.title = title;
 		btn.onclick = on_click;
